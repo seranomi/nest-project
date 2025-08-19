@@ -1,5 +1,7 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { User } from './user.entity';
+import { Artwork } from './atrwork.entity';
+import { ExhibitionArtwork } from './exhibition-artwork.entity';
 
 @Entity()
 export class Exhibition {
@@ -20,8 +22,10 @@ export class Exhibition {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @Column()
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   user: User;
+
+  @OneToMany(() => ExhibitionArtwork, (exhibitionArtwork) => exhibitionArtwork.exhibition)
+  artworks: ExhibitionArtwork[];
 }
