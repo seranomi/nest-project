@@ -13,8 +13,6 @@ import { ExhibitionArtwork } from './exhibition-artwork.entity';
 
 @Entity()
 export class Artwork {
-  // Assuming Artwork entity has some properties and relationships
-  // For example:
   @PrimaryGeneratedColumn()
   id: number;
 
