@@ -1,6 +1,15 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { User } from './user.entity';
-import { Artwork } from './atrwork.entity';
+import { Artwork } from './artwork.entity';
 import { ExhibitionArtwork } from './exhibition-artwork.entity';
 
 @Entity()
@@ -26,6 +35,10 @@ export class Exhibition {
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @OneToMany(() => ExhibitionArtwork, (exhibitionArtwork: ExhibitionArtwork) => exhibitionArtwork.exhibition, { eager: true })
+  @OneToMany(
+    () => ExhibitionArtwork,
+    (exhibitionArtwork: ExhibitionArtwork) => exhibitionArtwork.exhibition,
+    { eager: true },
+  )
   artworks: ExhibitionArtwork[];
 }

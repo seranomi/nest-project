@@ -4,7 +4,7 @@ import { S3Service } from 'configs/s3/s3.service';
 import { DeleteStatus } from 'src/commons/enums/delete-status.enum';
 import { CreateArtworkDto } from 'src/models/dto/create-artwork.dto';
 import { UpdateArtworkDto } from 'src/models/dto/update-artwork.dto';
-import { Artwork } from 'src/models/entities/atrwork.entity';
+import { Artwork } from 'src/models/entities/artwork.entity';
 import { User } from 'src/models/entities/user.entity';
 import { Repository } from 'typeorm';
 
