@@ -26,6 +26,6 @@ export class Exhibition {
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @OneToMany(() => ExhibitionArtwork, (exhibitionArtwork) => exhibitionArtwork.exhibition)
+  @OneToMany(() => ExhibitionArtwork, (exhibitionArtwork: ExhibitionArtwork) => exhibitionArtwork.exhibition, { eager: true })
   artworks: ExhibitionArtwork[];
 }

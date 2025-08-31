@@ -7,12 +7,10 @@ export class ExhibitionArtwork {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Exhibition, (exhibition) => exhibition.artworks, {
-    eager: true,
-  })
+  @ManyToOne(() => Exhibition, (exhibition) => exhibition.artworks, { onDelete:'CASCADE', eager: false })
   exhibition: Exhibition;
 
-  @ManyToOne(() => Artwork, (artwork) => artwork.exhibitions, { eager: true })
+  @ManyToOne(() => Artwork, (artwork) => artwork.exhibitions, { onDelete:'CASCADE', eager: true })
   artwork: Artwork;
 
   @Column()
