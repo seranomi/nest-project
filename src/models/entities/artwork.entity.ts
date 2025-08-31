@@ -35,11 +35,9 @@ export class Artwork {
   )
   exhibitions: ExhibitionArtwork[];
 
-  @Column()
   @CreateDateColumn()
   created_at: Date;
 
-  @Column()
   @UpdateDateColumn()
   updated_at: Date;
 }

@@ -18,7 +18,7 @@ import { Token } from 'src/auth/token';
 import { DeleteStatus } from 'src/commons/enums/delete-status.enum';
 import { CreateArtworkDto } from 'src/models/dto/create-artwork.dto';
 import { UpdateArtworkDto } from 'src/models/dto/update-artwork.dto';
-import { Artwork } from 'src/models/entities/atrwork.entity';
+import { Artwork } from 'src/models/entities/artwork.entity';
 import { ArtworkService } from 'src/services/artwork/artwork.service';
 
 @Controller('artworks')

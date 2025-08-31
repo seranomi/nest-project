@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { Exhibition } from './exhibition.entity';
-import { Artwork } from './atrwork.entity';
+import { Artwork } from './artwork.entity';
 
 @Entity()
 export class ExhibitionArtwork {

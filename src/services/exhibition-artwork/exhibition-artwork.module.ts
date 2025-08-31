@@ -6,7 +6,7 @@ import { ExhibitionArtworkService } from "./exhibition-artwork.service";
 import { PassportModule } from "@nestjs/passport";
 import { JwtStrategy } from "src/auth/jwt/jwt.strategy";
 import { Exhibition } from "src/models/entities/exhibition.entity";
-import { Artwork } from "src/models/entities/atrwork.entity";
+import { Artwork } from "src/models/entities/artwork.entity";
 
 @Module({
   imports: [

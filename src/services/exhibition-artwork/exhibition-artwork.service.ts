@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateExhibitionArtworkDto } from "src/models/dto/create-exhibition-artwork.dto";
-import { Artwork } from "src/models/entities/atrwork.entity";
+import { Artwork } from "src/models/entities/artwork.entity";
 import { ExhibitionArtwork } from "src/models/entities/exhibition-artwork.entity";
 import { Exhibition } from "src/models/entities/exhibition.entity";
 import { In, Repository } from "typeorm";
