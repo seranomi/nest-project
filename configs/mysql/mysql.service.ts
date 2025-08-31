@@ -13,7 +13,7 @@ export class MysqlService implements TypeOrmOptionsFactory {
       entities: [__dirname + '/../../models/entities/*.entity.{js,ts}'],
       autoLoadEntities: true,
       synchronize: true,
-      logger: true,
+      logging: true,
     };
   }
 }
