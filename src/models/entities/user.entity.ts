@@ -29,11 +29,9 @@ export class User {
   @OneToMany(() => Artwork, (artwork) => artwork.user)
   artworks: Artwork[];
 
-  @Column()
   @CreateDateColumn()
   created_at: Date;
 
-  @Column()
   @UpdateDateColumn()
   updated_at: Date;
 }
