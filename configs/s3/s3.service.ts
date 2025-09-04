@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { S3Client, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { v4 as uuid } from 'uuid';
 import { ConfigService } from '@nestjs/config';
+import * as path from 'path';
 
 @Injectable()
 export class S3Service {
@@ -20,7 +21,8 @@ export class S3Service {
   }
 
   async uploadFile(file: Express.Multer.File): Promise<string> {
-    const key = `artworks/${uuid()}`;
+    const extension = path.extname(file.originalname);
+    const key = `artworks/${uuid()}${extension}`;
     await this.s3.send(
       new PutObjectCommand({
         Bucket: this.s3ConfigOptions.bucket,
