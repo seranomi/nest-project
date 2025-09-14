@@ -37,13 +37,13 @@ export class ArtworkService {
   async getArtworks(user: User): Promise<Artwork[]> {
     return await this.artworkRepo.find({
       where: { user: { id: user.id } },
-      order: { created_at: 'DESC' },
+      order: { created_at: 'ASC' },
     });
   }
 
   async getAllArtworks(): Promise<Artwork[]> {
     return await this.artworkRepo.find({
-      order: { created_at: 'DESC' },
+      order: { created_at: 'ASC' },
     });
   }
 

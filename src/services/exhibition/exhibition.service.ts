@@ -29,4 +29,10 @@ export class ExhibitionService {
   async getExhibitions(): Promise<Exhibition[]> {
     return await this.exhibitionRepo.find();
   }
+
+  async getExhibitionsById(id: string): Promise<Exhibition | null> {
+    return await this.exhibitionRepo.findOne({
+      where: { id: Number(id) },
+    });
+  }
 }

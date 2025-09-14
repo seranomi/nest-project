@@ -27,4 +27,12 @@ export class ExhibitionController {
   async getExhibitions(): Promise<Exhibition[]> {
     return await this.exhibitionService.getExhibitions();
   }
+
+  @ApiOperation({ description: '전시관 단일 조회' })
+  @Get('/:id')
+  @ApiOkResponse({ description: '전시관 단일 조회 성공' })
+  async getExhibitionsById(@Req() req): Promise<Exhibition | null> {
+    const { id } = req.params;
+    return await this.exhibitionService.getExhibitionsById(id);
+  }
 }
