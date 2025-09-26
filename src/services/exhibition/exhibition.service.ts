@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { DeleteStatus } from 'src/commons/enums/delete-status.enum';
 import { CreateExhibitionDto } from 'src/models/dto/create-exhibition.dto';
 import { Exhibition } from 'src/models/entities/exhibition.entity';
 import { User } from 'src/models/entities/user.entity';
@@ -34,5 +35,16 @@ export class ExhibitionService {
     return await this.exhibitionRepo.findOne({
       where: { id: Number(id) },
     });
+  }
+
+  async deleteExhibition(id: string, user: User): Promise<DeleteStatus> {
+    const existExhibition = await this.exhibitionRepo.findOne({
+      where: { id: Number(id), user: user },
+    });
+    if (existExhibition == null) {
+      return DeleteStatus.Fail;
+    }
+    await this.exhibitionRepo.delete(existExhibition.id);
+    return DeleteStatus.Success;
   }
 }

@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { create } from 'domain';
 import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
+import { DeleteStatus } from 'src/commons/enums/delete-status.enum';
 import { CreateExhibitionDto } from 'src/models/dto/create-exhibition.dto';
 import { Exhibition } from 'src/models/entities/exhibition.entity';
 import { ExhibitionService } from 'src/services/exhibition/exhibition.service';
@@ -34,5 +35,14 @@ export class ExhibitionController {
   async getExhibitionsById(@Req() req): Promise<Exhibition | null> {
     const { id } = req.params;
     return await this.exhibitionService.getExhibitionsById(id);
+  }
+
+  @ApiOperation({ description: '전시관 삭제' })
+  @Delete('/:id')
+  @UseGuards(JwtAuthGuard)
+  @ApiOkResponse({ description: '전시관 삭제 성공' })
+  async deleteExhibition(@Req() req): Promise<DeleteStatus> {
+    const { id } = req.params;
+    return await this.exhibitionService.deleteExhibition(id, req.user);
   }
 }
